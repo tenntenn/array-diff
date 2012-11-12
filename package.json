@@ -3,7 +3,7 @@
   "name": "array-diff",
   "description": "Array diff function for JavaScript",
   "version": "0.0.1",
-  "homepage": "https://github.com/tenntenn/array-diff"",
+  "homepage": "https://github.com/tenntenn/array-diff",
   "repository": {
     "type": "git",
     "url": "git://github.com/tenntenn/array-diff.git"
@@ -15,7 +15,10 @@
   "devDependencies": {
     "grunt": "~0.3.17",
     "grunt-requirejs": "~0.2.14",
-    "grunt-contrib-yuidoc": "~0.3.2"
+    "grunt-contrib-yuidoc": "~0.3.2",
+    "mocha": "~1.7.0",
+    "phantomjs": "~0.0.2",
+    "grunt-mocha": "~0.1.7"
   },
   "optionalDependencies": {},
   "licenses": [
