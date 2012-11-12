@@ -3,6 +3,7 @@ module.exports = function(grunt) {
 
         grunt.loadNpmTasks('grunt-requirejs');
         grunt.loadNpmTasks('grunt-contrib-yuidoc');
+        grunt.loadNpmTasks('grunt-mocha');
 
         // Project configuration.
         grunt.initConfig({
@@ -30,6 +31,7 @@ module.exports = function(grunt) {
                 lint: {
                         files: [
                                 'src/*.js',
+                                'test/*.js'
                         ]
                 },
                 min: {
@@ -37,6 +39,11 @@ module.exports = function(grunt) {
                                 src: ['<banner:meta.banner>', '<config:requirejs.out>'],
                                 dest: 'dist/<%= pkg.name %>.min.js'
                         }
+                },
+                mocha: {
+                        all: [ 
+                                'test/*.js'
+                        ]
                 },
                 watch: {
                         files: '<config:lint.files>',
@@ -57,7 +64,8 @@ module.exports = function(grunt) {
                                 browser: true
                         },
                         globals: {
-                                "define": true 
+                               "define": true, // for require.js
+                               "describe": true // for mocha 
                         }
                 },
                 yuidoc: {
@@ -74,6 +82,9 @@ module.exports = function(grunt) {
                         }
                 }
         });
+
+        // Behavior test
+        grunt.registerTask('test', 'mocha');
 
         // Create API documnet
         grunt.registerTask('doc', 'yuidoc');
