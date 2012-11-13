@@ -1,0 +1,13 @@
+{
+    "project": {
+        "name": "array-diff",
+        "description": "Array diff function for JavaScript",
+        "version": "0.0.1",
+        "url": "https://github.com/tenntenn/array-diff"
+    },
+    "files": {},
+    "modules": {},
+    "classes": {},
+    "classitems": [],
+    "warnings": []
+}
