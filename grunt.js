@@ -3,7 +3,6 @@ module.exports = function(grunt) {
 
         grunt.loadNpmTasks('grunt-requirejs');
         grunt.loadNpmTasks('grunt-contrib-yuidoc');
-        grunt.loadNpmTasks('grunt-mocha');
 
         // Project configuration.
         grunt.initConfig({
@@ -16,8 +15,13 @@ module.exports = function(grunt) {
                                 ' Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %> */'
                 },
                 requirejs: {
-                        baseUrl: "src",
+                        baseUrl: ".",
+                        paths: {
+                                "almond":"lib/almond",
+                                "arrayDiff":"src/arrayDiff"
+                        },
                         include: [
+                                "almond",
                                 "arrayDiff"
                         ],
                         exclude: [],
@@ -26,24 +30,21 @@ module.exports = function(grunt) {
                                 startFile: "wrap/wrap.start",
                                 endFile: "wrap/wrap.end"
                         },
+                        skipModuleInsertion: false,
+                        optimizeAllPluginResources: true,
                         findNestedDependencies: true
                 },
                 lint: {
                         files: [
                                 'src/*.js',
-                                'test/*.js'
+                                'src/base/*.js'
                         ]
                 },
                 min: {
-                        dist: {
-                                src: ['<banner:meta.banner>', '<config:requirejs.out>'],
+                       dist: {
+                                src: ['<banner:meta.banner>','<config:requirejs.out>'],
                                 dest: 'dist/<%= pkg.name %>.min.js'
                         }
-                },
-                mocha: {
-                        all: [ 
-                                'test/test.html'
-                        ]
                 },
                 watch: {
                         files: '<config:lint.files>',
@@ -64,8 +65,10 @@ module.exports = function(grunt) {
                                 browser: true
                         },
                         globals: {
-                               "define": true, // for require.js
-                               "describe": true // for mocha 
+                                "console":true,
+                                "sb": true,
+                                "ko": true,
+                                "define": true
                         }
                 },
                 yuidoc: {
@@ -73,6 +76,7 @@ module.exports = function(grunt) {
                                 "name": '<%= pkg.title || pkg.name %>',
                                 "description": '<%= pkg.description %>',
                                 "version": '<%= pkg.version %>',
+                                "logo": '../img/logo.png',
                                 "url": '<%= pkg.homepage %>',
                                 options: {
                                         paths: '<config:requirejs.baseUrl>',
@@ -82,9 +86,6 @@ module.exports = function(grunt) {
                         }
                 }
         });
-
-        // Behavior test
-        grunt.registerTask('test', 'mocha');
 
         // Create API documnet
         grunt.registerTask('doc', 'yuidoc');
