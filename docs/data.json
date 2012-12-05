@@ -32,6 +32,15 @@
                 "base": 1
             }
         },
+        "src/base/Command.js": {
+            "name": "src/base/Command.js",
+            "modules": {},
+            "classes": {
+                "base.Command": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
         "src/base/CommandType.js": {
             "name": "src/base/CommandType.js",
             "modules": {},
@@ -42,15 +51,6 @@
             "namespaces": {
                 "base": 1
             }
-        },
-        "src/base/Edit.js": {
-            "name": "src/base/Edit.js",
-            "modules": {},
-            "classes": {
-                "base.Command": 1
-            },
-            "fors": {},
-            "namespaces": {}
         },
         "src/base/EditScript.js": {
             "name": "src/base/EditScript.js",
@@ -101,21 +101,6 @@
                 }
             ]
         },
-        "base.CommandType": {
-            "name": "base.CommandType",
-            "shortname": "base.CommandType",
-            "classitems": [],
-            "plugins": [],
-            "extensions": [],
-            "plugin_for": [],
-            "extension_for": [],
-            "namespace": "base",
-            "file": "src/base/CommandType.js",
-            "line": 6,
-            "description": "Command type.",
-            "access": "public",
-            "tagname": ""
-        },
         "base.Command": {
             "name": "base.Command",
             "shortname": "Command",
@@ -125,7 +110,7 @@
             "plugin_for": [],
             "extension_for": [],
             "namespace": "base",
-            "file": "src/base/Edit.js",
+            "file": "src/base/Command.js",
             "line": 8,
             "is_constructor": 1,
             "params": [
@@ -145,6 +130,21 @@
                     "type": "Array"
                 }
             ]
+        },
+        "base.CommandType": {
+            "name": "base.CommandType",
+            "shortname": "base.CommandType",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "namespace": "base",
+            "file": "src/base/CommandType.js",
+            "line": 6,
+            "description": "Command type.",
+            "access": "public",
+            "tagname": ""
         },
         "base.EditScript": {
             "name": "base.EditScript",
@@ -3640,7 +3640,7 @@
         },
         {
             "message": "param name missing: {Array}",
-            "line": " src/base/Edit.js:8"
+            "line": " src/base/Command.js:8"
         },
         {
             "message": "unknown tag: api",
