@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>base.Diff - array-diff</title>
+    <title>src&#x2F;base&#x2F;ArrayDiff.js - array-diff</title>
     <link rel="stylesheet" href="http:&#x2F;&#x2F;yui.yahooapis.com&#x2F;3.7.0&#x2F;build&#x2F;cssgrids&#x2F;cssgrids-min.css">
     <link rel="stylesheet" href="..&#x2F;assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="..&#x2F;assets/css/main.css" id="site_styles">
@@ -41,11 +41,13 @@
         <div id="api-tabview-panel">
             <ul id="api-classes" class="apis classes">
             
-                <li><a href="..&#x2F;classes/base.ArrayComparator.html">base.ArrayComparator</a></li>
+                <li><a href="..&#x2F;classes/base.ArrayDiff.html">base.ArrayDiff</a></li>
             
-                <li><a href="..&#x2F;classes/base.Diff.html">base.Diff</a></li>
+                <li><a href="..&#x2F;classes/base.Command.html">base.Command</a></li>
             
-                <li><a href="..&#x2F;classes/base.Point.html">base.Point</a></li>
+                <li><a href="..&#x2F;classes/base.CommandType.html">base.CommandType</a></li>
+            
+                <li><a href="..&#x2F;classes/base.EditScript.html">base.EditScript</a></li>
             
             </ul>
 
@@ -86,62 +88,95 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-                        <h1>base.Diff Class</h1>
-<div class="box meta">
-    
+                        <h1 class="file-heading">File: src&#x2F;base&#x2F;ArrayDiff.js</h1>
 
-    
+<div class="file">
+    <pre class="code prettyprint linenums">
+define(
+	&#x27;base&#x2F;ArrayDiff&#x27;,
+	[
+		&#x27;base&#x2F;EditScript&#x27;,
+		&#x27;base&#x2F;Command&#x27;,
+		&#x27;base&#x2F;CommandType&#x27;
+	],
+	function(EditScript, Command, CommandType) {
 
-    
-        <div class="foundat">
-            Defined in: <a href="..&#x2F;files&#x2F;src_base_Diff.js.html#l6"><code>src&#x2F;base&#x2F;Diff.js:6</code></a>
-        </div>
-    
+		&#x2F;**
+		 * Diffrence of given two arrays.
+		 * @public
+		 * @class ArrayDiff
+		 * @constructor
+		 * @param {Array} array1 array
+		 * @param {Array} array2 array
+		 * @namespace base
+		 *&#x2F;
+		function ArrayDiff(array1, array2) {
 
-    
-
-    
-</div>
-
-
-
-<div class="box intro">
-    <p>Diffrence of two arrays.</p>
-</div>
+			&#x2F;&#x2F; assert
+			if (!Array.isArray(array1)) {
+				throw new Error(&quot;First parameter must be Array object.&quot;);
+			} else if (!Array.isArray(array2)) {
+				throw new Error(&quot;Second parameter must be Array object.&quot;);
+			}
 
 
+			&#x2F;**
+			 * EditScirpt of this diffrence.
+			 * @private
+			 * @property editscript
+			 * @type {base.EditScript}
+			 *&#x2F;
+			var editscript = null;
 
-<div id="classdocs" class="tabview">
-    <ul class="api-class-tabs">
-        <li class="api-class-tab index"><a href="#index">Index</a></li>
+			&#x2F;**
+			 * Get composed edit script.
+			 * It must be called after calling base.EditScript.compose().
+			 * @public
+			 * @method getEditScript
+			 * @return {base.EditScript} edit script
+			 *&#x2F;
+			this.getEditScript = function() {
+				return editscript;
+			};
 
-        
-        
-        
-        
-    </ul>
+			&#x2F;**
+			 * 
+			 * @method compose
+			 * @return base.EditScript
+			 *&#x2F;
+			this.compose= function() {
 
-    <div>
-        <div id="index" class="api-class-tabpanel index">
-            <h2 class="off-left">Item Index</h2>
+				editscript = new EditScript();
 
-            
+				var i = 0;
+				array1.forEach(function(o, j) {
+					var idx = array2.indexOf(o, i);
+					if (idx &gt;= 0) {
+						editscript.push(new Command(CommandType.COMMON, j, o));
+						i = idx + 1;
+					} else {
+						editscript.push(new Command(CommandType.DELETE, j, o));
+					}
+				});
 
-            
+				i = 0;
+				array2.forEach(function(o, j) {
+					var idx = array1.indexOf(o, i);
+					if (idx &gt;= 0) {
+						i = idx + 1;
+					} else {
+						editscript.push(new Command(CommandType.Add, i, o));
+					}
+				});
 
-            
+			};
+		}
 
-            
-        </div>
+		return ArrayDiff;
+	}
+);
 
-        
-
-        
-
-        
-
-        
-    </div>
+    </pre>
 </div>
 
                     </div>

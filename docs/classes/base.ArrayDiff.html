@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>base.ArrayComparator - array-diff</title>
+    <title>base.ArrayDiff - array-diff</title>
     <link rel="stylesheet" href="http:&#x2F;&#x2F;yui.yahooapis.com&#x2F;3.7.0&#x2F;build&#x2F;cssgrids&#x2F;cssgrids-min.css">
     <link rel="stylesheet" href="..&#x2F;assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="..&#x2F;assets/css/main.css" id="site_styles">
@@ -41,11 +41,13 @@
         <div id="api-tabview-panel">
             <ul id="api-classes" class="apis classes">
             
-                <li><a href="..&#x2F;classes/base.ArrayComparator.html">base.ArrayComparator</a></li>
+                <li><a href="..&#x2F;classes/base.ArrayDiff.html">base.ArrayDiff</a></li>
             
-                <li><a href="..&#x2F;classes/base.Diff.html">base.Diff</a></li>
+                <li><a href="..&#x2F;classes/base.Command.html">base.Command</a></li>
             
-                <li><a href="..&#x2F;classes/base.Point.html">base.Point</a></li>
+                <li><a href="..&#x2F;classes/base.CommandType.html">base.CommandType</a></li>
+            
+                <li><a href="..&#x2F;classes/base.EditScript.html">base.EditScript</a></li>
             
             </ul>
 
@@ -86,7 +88,7 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-                        <h1>base.ArrayComparator Class</h1>
+                        <h1>base.ArrayDiff Class</h1>
 <div class="box meta">
     
 
@@ -94,7 +96,7 @@
 
     
         <div class="foundat">
-            Defined in: <a href="..&#x2F;files&#x2F;src_base_ArrayComparator.js.html#l8"><code>src&#x2F;base&#x2F;ArrayComparator.js:8</code></a>
+            Defined in: <a href="..&#x2F;files&#x2F;src_base_ArrayDiff.js.html#l10"><code>src&#x2F;base&#x2F;ArrayDiff.js:10</code></a>
         </div>
     
 
@@ -106,16 +108,14 @@
 
 
 <div class="box intro">
-    <p>Compare two arrays. 
-The paramters have tosatisfy array1.length &lt;= array2.length,
-otherwise array1 and array2 will be swaped.</p>
+    <p>Diffrence of given two arrays.</p>
 </div>
 
 
     <div class="constructor">
         <h2>Constructor</h2>
-        <div id="method_base.ArrayComparator" class="method item">
-    <h3 class="name"><code>base.ArrayComparator</code></h3>
+        <div id="method_base.ArrayDiff" class="method item public">
+    <h3 class="name"><code>base.ArrayDiff</code></h3>
 
     
         <div class="args">
@@ -142,6 +142,8 @@ otherwise array1 and array2 will be swaped.</p>
     
 
     
+        <span class="flag public">public</span>
+    
 
     
 
@@ -162,7 +164,7 @@ otherwise array1 and array2 will be swaped.</p>
             
         
         
-        <a href="..&#x2F;files&#x2F;src_base_ArrayComparator.js.html#l8"><code>src&#x2F;base&#x2F;ArrayComparator.js:8</code></a>
+        <a href="..&#x2F;files&#x2F;src_base_ArrayDiff.js.html#l10"><code>src&#x2F;base&#x2F;ArrayDiff.js:10</code></a>
         
         </p>
 
@@ -191,7 +193,7 @@ otherwise array1 and array2 will be swaped.</p>
                     
 
                     <div class="param-description">
-                        <p>shorter array</p>
+                        <p>array</p>
                     </div>
 
                     
@@ -206,7 +208,7 @@ otherwise array1 and array2 will be swaped.</p>
                     
 
                     <div class="param-description">
-                        <p>longer array</p>
+                        <p>array</p>
                     </div>
 
                     
@@ -232,6 +234,8 @@ otherwise array1 and array2 will be swaped.</p>
             <li class="api-class-tab methods"><a href="#methods">Methods</a></li>
         
         
+            <li class="api-class-tab properties"><a href="#properties">Properties</a></li>
+        
         
         
     </ul>
@@ -247,14 +251,31 @@ otherwise array1 and array2 will be swaped.</p>
                     <ul class="index-list methods">
                         
                             <li class="index-item method">
-                                <a href="#method_compare">compare</a>
+                                <a href="#method_compose">compose</a>
 
                                 
                                 
                             </li>
                         
-                            <li class="index-item method">
-                                <a href="#method_snake">snake</a>
+                            <li class="index-item method public">
+                                <a href="#method_getEditScript">getEditScript</a>
+
+                                
+                                
+                            </li>
+                        
+                    </ul>
+                </div>
+            
+
+            
+                <div class="index-section properties">
+                    <h3>Properties</h3>
+
+                    <ul class="index-list properties">
+                        
+                            <li class="index-item property private">
+                                <a href="#property_editscript">editscript</a>
 
                                 
                                 
@@ -267,8 +288,6 @@ otherwise array1 and array2 will be swaped.</p>
             
 
             
-
-            
         </div>
 
         
@@ -276,8 +295,8 @@ otherwise array1 and array2 will be swaped.</p>
                 <h2 class="off-left">Methods</h2>
 
                 
-                    <div id="method_compare" class="method item">
-    <h3 class="name"><code>compare</code></h3>
+                    <div id="method_compose" class="method item">
+    <h3 class="name"><code>compose</code></h3>
 
     
         <span class="paren">()</span>
@@ -312,7 +331,7 @@ otherwise array1 and array2 will be swaped.</p>
             
         
         
-        <a href="..&#x2F;files&#x2F;src_base_ArrayComparator.js.html#l69"><code>src&#x2F;base&#x2F;ArrayComparator.js:69</code></a>
+        <a href="..&#x2F;files&#x2F;src_base_ArrayDiff.js.html#l48"><code>src&#x2F;base&#x2F;ArrayDiff.js:48</code></a>
         
         </p>
 
@@ -335,7 +354,7 @@ otherwise array1 and array2 will be swaped.</p>
             <div class="returns-description">
                 
                     
-                    sb.Diff
+                    base.EditScript
                 
             </div>
         </div>
@@ -345,31 +364,23 @@ otherwise array1 and array2 will be swaped.</p>
 </div>
 
                 
-                    <div id="method_snake" class="method item">
-    <h3 class="name"><code>snake</code></h3>
+                    <div id="method_getEditScript" class="method item public">
+    <h3 class="name"><code>getEditScript</code></h3>
 
     
-        <div class="args">
-            <span class="paren">(</span><ul class="args-list inline commas">
-            
-                <li class="arg">
-                    
-                        <code>xy</code>
-                    
-                </li>
-            
-            </ul><span class="paren">)</span>
-        </div>
+        <span class="paren">()</span>
     
 
     
         <span class="returns-inline">
-            <span class="type">Number</span>
+            <span class="type"><a href="../classes/base.EditScript.html" class="crosslink">base.EditScript</a></span>
         </span>
     
 
     
 
+    
+        <span class="flag public">public</span>
     
 
     
@@ -391,7 +402,7 @@ otherwise array1 and array2 will be swaped.</p>
             
         
         
-        <a href="..&#x2F;files&#x2F;src_base_ArrayComparator.js.html#l50"><code>src&#x2F;base&#x2F;ArrayComparator.js:50</code></a>
+        <a href="..&#x2F;files&#x2F;src_base_ArrayDiff.js.html#l37"><code>src&#x2F;base&#x2F;ArrayDiff.js:37</code></a>
         
         </p>
 
@@ -402,32 +413,10 @@ otherwise array1 and array2 will be swaped.</p>
     </div>
 
     <div class="description">
-        
+        <p>Get composed edit script.
+It must be called after calling base.EditScript.compose().</p>
     </div>
 
-    
-        <div class="params">
-            <h4>Parameters:</h4>
-
-            <ul class="params-list">
-            
-                <li class="param">
-                    
-                        <code class="param-name">xy</code>
-                        <span class="type"><a href="../classes/base.Point.html" class="crosslink">base.Point</a></span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>X-Y coordinate</p>
-                    </div>
-
-                    
-                </li>
-            
-            </ul>
-        </div>
     
 
     
@@ -437,9 +426,9 @@ otherwise array1 and array2 will be swaped.</p>
             <div class="returns-description">
                 
                     
-                        <span class="type">Number</span>:
+                        <span class="type"><a href="../classes/base.EditScript.html" class="crosslink">base.EditScript</a></span>:
                     
-                    Y coordinate
+                    edit script
                 
             </div>
         </div>
@@ -452,6 +441,58 @@ otherwise array1 and array2 will be swaped.</p>
             </div>
         
 
+        
+            <div id="properties" class="api-class-tabpanel">
+                <h2 class="off-left">Properties</h2>
+
+                
+                    <div id="property_editscript" class="property item private">
+    <h3 class="name"><code>editscript</code></h3>
+    <span class="type"><a href="../classes/base.EditScript.html" class="crosslink">base.EditScript</a></span>
+
+    
+
+    
+        <span class="flag private">private</span>
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;src_base_ArrayDiff.js.html#l29"><code>src&#x2F;base&#x2F;ArrayDiff.js:29</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>EditScirpt of this diffrence.</p>
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+            </div>
         
 
         

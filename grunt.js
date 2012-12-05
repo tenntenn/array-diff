@@ -66,8 +66,6 @@ module.exports = function(grunt) {
                         },
                         globals: {
                                 "console":true,
-                                "sb": true,
-                                "ko": true,
                                 "define": true
                         }
                 },

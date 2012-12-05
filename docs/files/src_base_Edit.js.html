@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>array-diff</title>
+    <title>src&#x2F;base&#x2F;Edit.js - array-diff</title>
     <link rel="stylesheet" href="http:&#x2F;&#x2F;yui.yahooapis.com&#x2F;3.7.0&#x2F;build&#x2F;cssgrids&#x2F;cssgrids-min.css">
-    <link rel="stylesheet" href=".&#x2F;assets/vendor/prettify/prettify-min.css">
-    <link rel="stylesheet" href=".&#x2F;assets/css/main.css" id="site_styles">
-    <link rel="shortcut icon" type="image/png" href=".&#x2F;assets/favicon.png">
+    <link rel="stylesheet" href="..&#x2F;assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="..&#x2F;assets/css/main.css" id="site_styles">
+    <link rel="shortcut icon" type="image/png" href="..&#x2F;assets/favicon.png">
     <script src="http:&#x2F;&#x2F;yui.yahooapis.com&#x2F;combo?3.7.0&#x2F;build&#x2F;yui&#x2F;yui-min.js"></script>
 </head>
 <body class="yui3-skin-sam">
@@ -41,13 +41,13 @@
         <div id="api-tabview-panel">
             <ul id="api-classes" class="apis classes">
             
-                <li><a href=".&#x2F;classes/base.ArrayDiff.html">base.ArrayDiff</a></li>
+                <li><a href="..&#x2F;classes/base.ArrayDiff.html">base.ArrayDiff</a></li>
             
-                <li><a href=".&#x2F;classes/base.Command.html">base.Command</a></li>
+                <li><a href="..&#x2F;classes/base.Command.html">base.Command</a></li>
             
-                <li><a href=".&#x2F;classes/base.CommandType.html">base.CommandType</a></li>
+                <li><a href="..&#x2F;classes/base.CommandType.html">base.CommandType</a></li>
             
-                <li><a href=".&#x2F;classes/base.EditScript.html">base.EditScript</a></li>
+                <li><a href="..&#x2F;classes/base.EditScript.html">base.EditScript</a></li>
             
             </ul>
 
@@ -88,27 +88,36 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-                            <div class="apidocs">
-        <div id="docs-main" class="content">
-            <p>
-            Browse to a module or class using the sidebar to view its API documentation.
-            </p>
+                        <h1 class="file-heading">File: src&#x2F;base&#x2F;Edit.js</h1>
 
-            <h2>Keyboard Shortcuts</h2>
+<div class="file">
+    <pre class="code prettyprint linenums">
+define(
+	&#x27;base&#x2F;Command&#x27;,
+	[
+		&#x27;base&#x2F;CommandType&#x27;
+	],
+	function(CommandType) {
 
-            <ul>
-                <li><p>Press <kbd>s</kbd> to focus the API search box.</p></li>
+		&#x2F;**
+		 * @class Command
+		 * @constructor
+		 * @param {base.CommandType} type type of this command
+		 * @param {Number} index index of target of this command
+		 * @param {Array}
+		 *&#x2F;
+		function Command(type, index, value) {
+			this.type = type;
+			this.index = index;
+			this.value = value;
+		}
 
-                <li><p>Use <kbd>Up</kbd> and <kbd>Down</kbd> to select classes, modules, and search results.</p></li>
+		return Command;
+	}
+);
 
-                <li class="mac-only"><p>With the API search box or sidebar focused, use <kbd><span class="cmd">&#x2318;</span>-Left</kbd> or <kbd><span class="cmd">&#x2318;</span>-Right</kbd> to switch sidebar tabs.</p></li>
-
-                <li class="pc-only"><p>With the API search box or sidebar focused, use <kbd>Ctrl+Left</kbd> and <kbd>Ctrl+Right</kbd> to switch sidebar tabs.</p></li>
-            </ul>
-        </div>
-    </div>
-
-
+    </pre>
+</div>
 
                     </div>
                 </div>
@@ -116,13 +125,13 @@
         </div>
     </div>
 </div>
-<script src=".&#x2F;assets/vendor/prettify/prettify-min.js"></script>
+<script src="..&#x2F;assets/vendor/prettify/prettify-min.js"></script>
 <script>prettyPrint();</script>
-<script src=".&#x2F;assets/js/yui-prettify.js"></script>
-<script src=".&#x2F;assets/../api.js"></script>
-<script src=".&#x2F;assets/js/api-filter.js"></script>
-<script src=".&#x2F;assets/js/api-list.js"></script>
-<script src=".&#x2F;assets/js/api-search.js"></script>
-<script src=".&#x2F;assets/js/apidocs.js"></script>
+<script src="..&#x2F;assets/js/yui-prettify.js"></script>
+<script src="..&#x2F;assets/../api.js"></script>
+<script src="..&#x2F;assets/js/api-filter.js"></script>
+<script src="..&#x2F;assets/js/api-list.js"></script>
+<script src="..&#x2F;assets/js/api-search.js"></script>
+<script src="..&#x2F;assets/js/apidocs.js"></script>
 </body>
 </html>

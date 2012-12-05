@@ -21,36 +21,47 @@
             "fors": {},
             "namespaces": {}
         },
-        "src/base/ArrayComparator.js": {
-            "name": "src/base/ArrayComparator.js",
+        "src/base/ArrayDiff.js": {
+            "name": "src/base/ArrayDiff.js",
             "modules": {},
             "classes": {
-                "base.ArrayComparator": 1
+                "base.ArrayDiff": 1
             },
             "fors": {},
             "namespaces": {
                 "base": 1
             }
         },
-        "src/base/Diff.js": {
-            "name": "src/base/Diff.js",
+        "src/base/CommandType.js": {
+            "name": "src/base/CommandType.js",
             "modules": {},
             "classes": {
-                "base.Diff": 1
+                "base.CommandType": 1
             },
             "fors": {},
             "namespaces": {
                 "base": 1
             }
         },
-        "src/base/Point.js": {
-            "name": "src/base/Point.js",
+        "src/base/Edit.js": {
+            "name": "src/base/Edit.js",
             "modules": {},
             "classes": {
-                "base.Point": 1
+                "base.Command": 1
             },
             "fors": {},
             "namespaces": {}
+        },
+        "src/base/EditScript.js": {
+            "name": "src/base/EditScript.js",
+            "modules": {},
+            "classes": {
+                "base.EditScript": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "base": 1
+            }
         },
         "test/js/mocha.js": {
             "name": "test/js/mocha.js",
@@ -62,58 +73,92 @@
     },
     "modules": {},
     "classes": {
-        "base.ArrayComparator": {
-            "name": "base.ArrayComparator",
-            "shortname": "base.ArrayComparator",
+        "base.ArrayDiff": {
+            "name": "base.ArrayDiff",
+            "shortname": "base.ArrayDiff",
             "classitems": [],
             "plugins": [],
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
             "namespace": "base",
-            "file": "src/base/ArrayComparator.js",
-            "line": 8,
-            "description": "Compare two arrays. \nThe paramters have tosatisfy array1.length <= array2.length,\notherwise array1 and array2 will be swaped.",
+            "file": "src/base/ArrayDiff.js",
+            "line": 10,
+            "description": "Diffrence of given two arrays.",
+            "access": "public",
+            "tagname": "",
             "is_constructor": 1,
             "params": [
                 {
                     "name": "array1",
-                    "description": "shorter array",
+                    "description": "array",
                     "type": "Array"
                 },
                 {
                     "name": "array2",
-                    "description": "longer array",
+                    "description": "array",
                     "type": "Array"
                 }
             ]
         },
-        "base.Diff": {
-            "name": "base.Diff",
-            "shortname": "base.Diff",
+        "base.CommandType": {
+            "name": "base.CommandType",
+            "shortname": "base.CommandType",
             "classitems": [],
             "plugins": [],
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
             "namespace": "base",
-            "file": "src/base/Diff.js",
+            "file": "src/base/CommandType.js",
             "line": 6,
-            "description": "Diffrence of two arrays."
-        },
-        "base.Point": {
-            "name": "base.Point",
-            "shortname": "Point",
-            "classitems": [],
-            "plugins": [],
-            "extensions": [],
-            "plugin_for": [],
-            "extension_for": [],
-            "namespace": "base",
-            "file": "src/base/Point.js",
-            "line": 6,
-            "access": "private",
+            "description": "Command type.",
+            "access": "public",
             "tagname": ""
+        },
+        "base.Command": {
+            "name": "base.Command",
+            "shortname": "Command",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "namespace": "base",
+            "file": "src/base/Edit.js",
+            "line": 8,
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "type",
+                    "description": "type of this command",
+                    "type": "base.CommandType"
+                },
+                {
+                    "name": "index",
+                    "description": "index of target of this command",
+                    "type": "Number"
+                },
+                {
+                    "name": "UNKNOWN",
+                    "description": "",
+                    "type": "Array"
+                }
+            ]
+        },
+        "base.EditScript": {
+            "name": "base.EditScript",
+            "shortname": "base.EditScript",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "namespace": "base",
+            "file": "src/base/EditScript.js",
+            "line": 8,
+            "description": "EditScript of an array difference.",
+            "is_constructor": 1
         }
     },
     "classitems": [
@@ -121,13 +166,13 @@
             "file": "dist/build.js",
             "line": 1,
             "description": "almond 0.2.0 Copyright (c) 2011, The Dojo Foundation All Rights Reserved.\nAvailable via the MIT or new BSD license.\nsee: http://github.com/jrburke/almond for details",
-            "class": "base.ArrayComparator"
+            "class": "base.ArrayDiff"
         },
         {
             "file": "lib/almond.js",
             "line": 1,
             "description": "almond 0.2.0 Copyright (c) 2011, The Dojo Foundation All Rights Reserved.\nAvailable via the MIT or new BSD license.\nsee: http://github.com/jrburke/almond for details",
-            "class": "base.ArrayComparator"
+            "class": "base.ArrayDiff"
         },
         {
             "file": "lib/almond.js",
@@ -149,64 +194,214 @@
                 "description": "normalized name",
                 "type": "String"
             },
-            "class": "base.ArrayComparator"
+            "class": "base.ArrayDiff"
         },
         {
             "file": "lib/almond.js",
             "line": 179,
             "description": "Makes a name map, normalizing the name, and using a plugin\nfor normalization if necessary. Grabs a ref to plugin\ntoo, as an optimization.",
-            "class": "base.ArrayComparator"
+            "class": "base.ArrayDiff"
         },
         {
             "file": "lib/almond.js",
             "line": 359,
             "description": "Just drops the config on the floor, but returns req in case\nthe config return value is used.",
-            "class": "base.ArrayComparator"
+            "class": "base.ArrayDiff"
         },
         {
-            "file": "src/base/ArrayComparator.js",
-            "line": 50,
+            "file": "src/base/ArrayDiff.js",
+            "line": 29,
+            "description": "EditScirpt of this diffrence.",
+            "access": "private",
+            "tagname": "",
+            "itemtype": "property",
+            "name": "editscript",
+            "type": "{base.EditScript}",
+            "class": "base.ArrayDiff",
+            "namespace": "base"
+        },
+        {
+            "file": "src/base/ArrayDiff.js",
+            "line": 37,
+            "description": "Get composed edit script.\nIt must be called after calling base.EditScript.compose().",
+            "access": "public",
+            "tagname": "",
             "itemtype": "method",
-            "name": "snake",
+            "name": "getEditScript",
+            "return": {
+                "description": "edit script",
+                "type": "base.EditScript"
+            },
+            "class": "base.ArrayDiff",
+            "namespace": "base"
+        },
+        {
+            "file": "src/base/ArrayDiff.js",
+            "line": 48,
+            "itemtype": "method",
+            "name": "compose",
+            "return": {
+                "description": "base.EditScript"
+            },
+            "class": "base.ArrayDiff",
+            "namespace": "base"
+        },
+        {
+            "file": "src/base/CommandType.js",
+            "line": 14,
+            "description": "It indicates Common command.",
+            "access": "public",
+            "tagname": "",
+            "static": 1,
+            "final": 1,
+            "itemtype": "property",
+            "name": "COMMON",
+            "type": "CommandType",
+            "class": "base.CommandType",
+            "namespace": "base"
+        },
+        {
+            "file": "src/base/CommandType.js",
+            "line": 24,
+            "description": "It indicates Add command.",
+            "access": "public",
+            "tagname": "",
+            "static": 1,
+            "final": 1,
+            "itemtype": "property",
+            "name": "ADD",
+            "type": "CommandType",
+            "class": "base.CommandType",
+            "namespace": "base"
+        },
+        {
+            "file": "src/base/CommandType.js",
+            "line": 34,
+            "description": "It indicates Delete command.",
+            "access": "public",
+            "tagname": "",
+            "static": 1,
+            "final": 1,
+            "itemtype": "property",
+            "name": "DELETE",
+            "type": "CommandType",
+            "class": "base.CommandType",
+            "namespace": "base"
+        },
+        {
+            "file": "src/base/EditScript.js",
+            "line": 16,
+            "description": "Common commands.",
+            "access": "private",
+            "tagname": "",
+            "itemtype": "property",
+            "name": "commons",
+            "type": "base.Command",
+            "class": "base.EditScript",
+            "namespace": "base"
+        },
+        {
+            "file": "src/base/EditScript.js",
+            "line": 24,
+            "description": "Get common commands.",
+            "access": "public",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "getCommonCommands",
+            "return": {
+                "description": "",
+                "type": "Array<base.Command>"
+            },
+            "class": "base.EditScript",
+            "namespace": "base"
+        },
+        {
+            "file": "src/base/EditScript.js",
+            "line": 34,
+            "description": "Add commands.",
+            "access": "private",
+            "tagname": "",
+            "itemtype": "property",
+            "name": "adds",
+            "type": "base.Command",
+            "class": "base.EditScript",
+            "namespace": "base"
+        },
+        {
+            "file": "src/base/EditScript.js",
+            "line": 42,
+            "description": "Get add commands.",
+            "access": "public",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "getAddCommands",
+            "return": {
+                "description": "",
+                "type": "Array<base.Command>"
+            },
+            "class": "base.EditScript",
+            "namespace": "base"
+        },
+        {
+            "file": "src/base/EditScript.js",
+            "line": 52,
+            "description": "Delete commands.",
+            "access": "private",
+            "tagname": "",
+            "itemtype": "property",
+            "name": "deletes",
+            "type": "base.Command",
+            "class": "base.EditScript",
+            "namespace": "base"
+        },
+        {
+            "file": "src/base/EditScript.js",
+            "line": 60,
+            "description": "Get delete commands.",
+            "access": "public",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "getDeleteCommands",
+            "return": {
+                "description": "",
+                "type": "Array<base.Command>"
+            },
+            "class": "base.EditScript",
+            "namespace": "base"
+        },
+        {
+            "file": "src/base/EditScript.js",
+            "line": 71,
+            "access": "public",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "push",
             "params": [
                 {
-                    "name": "xy",
-                    "description": "X-Y coordinate",
-                    "type": "base.Point"
+                    "name": "command",
+                    "description": "it will be added",
+                    "type": "base.Command"
                 }
             ],
-            "return": {
-                "description": "Y coordinate",
-                "type": "Number"
-            },
-            "class": "base.ArrayComparator",
+            "class": "base.EditScript",
             "namespace": "base"
         },
         {
-            "file": "src/base/ArrayComparator.js",
-            "line": 69,
+            "file": "src/base/EditScript.js",
+            "line": 86,
+            "description": "Apply patch a given array.",
+            "access": "public",
+            "tagname": "",
             "itemtype": "method",
-            "name": "compare",
-            "return": {
-                "description": "sb.Diff"
-            },
-            "class": "base.ArrayComparator",
-            "namespace": "base"
-        },
-        {
-            "file": "src/base/Point.js",
-            "line": 12,
-            "itemtype": "property",
-            "name": "x",
-            "class": "base.Point",
-            "namespace": "base"
-        },
-        {
-            "file": "src/base/Point.js",
-            "line": 17,
-            "itemtype": "property",
-            "name": "y",
-            "class": "base.Point",
+            "name": "patch",
+            "params": [
+                {
+                    "name": "array",
+                    "description": "it will be apply patch",
+                    "type": "Array"
+                }
+            ],
+            "class": "base.EditScript",
             "namespace": "base"
         },
         {
@@ -3442,6 +3637,10 @@
         {
             "message": "replacing incorrect tag: returns with return",
             "line": " lib/almond.js:20"
+        },
+        {
+            "message": "param name missing: {Array}",
+            "line": " src/base/Edit.js:8"
         },
         {
             "message": "unknown tag: api",
