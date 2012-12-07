@@ -1,11 +1,18 @@
 define(
 	'spec/main',
 	[
-		'spec/testArrayDiff'
+		'spec/testArrayDiff',
+		'spec/testEditScript'
 	],
 	function() {
 		$(function() {
-			mocha.run();
+			if (window.mochaPhantomJS) {
+				// on console
+				mochaPhantomJS.run();
+			} else {
+				// on browser
+				mocha.run();
+			}
 		});
 	}
 );

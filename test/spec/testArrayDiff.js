@@ -1,19 +1,29 @@
 define(
 	"spec/testArrayDiff",
 	[
-		"arrayDiff/main"
+		"arrayDiff/base/ArrayDiff"
 	],
-	function(arrayDiff) {
-		console.log(arrayDiff);
-		describe("array-diff test", function(){
-			it('test1', function(){
+	function(ArrayDiff) {
+
+		describe("arrayDiff.base.ArrayDiff", function(){
+
+			it('can get a EditScript by getEditScript after calling compose', function(){
+
 				var a = [1, 2, 3, 4, 5];
 				var b = [1, 1, 2, 3, 3, 5];
 
-				var es = arrayDiff(a, b);
+				var diff = new ArrayDiff(a, b);
+				diff.compose();
+				var ec = diff.getEditScript();
+
+				// common command
+				ec.getCommonCommands().forEach(
+
+				); 
 
 				expect(b).to.equal(es.patch(a));
 			});
 		});
+
 	}
 );
