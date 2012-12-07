@@ -1,7 +1,7 @@
 define(
-	'base/EditScript',
+	'arrayDiff/base/EditScript',
 	[
-		'base/CommandType'
+		'arrayDiff/base/CommandType'
 	],
 	function(CommandType) {
 

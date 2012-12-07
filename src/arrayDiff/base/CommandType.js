@@ -1,5 +1,5 @@
 define(
-	'base/CommandType',
+	'arrayDiff/base/CommandType',
 	[],
 	function() {
 

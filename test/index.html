@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <title>Test of array-diff</title>
+        <link rel="stylesheet" href="css/mocha.css" />
+
+        <script src="js/mocha.js"></script>
+        <script src="js/chai.js"></script>
+
+        <!-- setup mocha -->
+        <script>
+            mocha.ui('bdd');
+            mocha.timeout(2000);
+            expect = chai.expect;
+        </script>
+
+        <!-- target file -->
+        <script src="../dist/array-diff.min.js"></script>
+
+        <!-- spec files -->
+        <script src="spec/testArrayDiff.js"></script>
+    </head>
+
+    <body>
+        <div id="mocha">
+        </div>
+        <script>
+            if (window.mochaPhantomJS) {
+                mochaPhantomJS.run();
+            } else {
+                mocha.run();
+            }
+        </script>
+    </body>
+</html>

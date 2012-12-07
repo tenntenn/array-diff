@@ -1,9 +1,9 @@
 define(
-	'base/ArrayDiff',
+	'arrayDiff/base/ArrayDiff',
 	[
-		'base/EditScript',
-		'base/Command',
-		'base/CommandType'
+		'arrayDiff/base/EditScript',
+		'arrayDiff/base/Command',
+		'arrayDiff/base/CommandType'
 	],
 	function(EditScript, Command, CommandType) {
 
