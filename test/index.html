@@ -5,8 +5,10 @@
         <title>Test of array-diff</title>
         <link rel="stylesheet" href="css/mocha.css" />
 
+		<script src="js/jquery-1.8.3.min.js"></script>
         <script src="js/mocha.js"></script>
         <script src="js/chai.js"></script>
+		<script src="js/require.js"></script>
 
         <!-- setup mocha -->
         <script>
@@ -16,21 +18,23 @@
         </script>
 
         <!-- target file -->
-        <script src="../dist/array-diff.min.js"></script>
+		<script>
 
-        <!-- spec files -->
-        <script src="spec/testArrayDiff.js"></script>
+			require.config({
+				baseUrl: "..",
+				paths:{
+					"arrayDiff": "src/arrayDiff",
+					"spec": "test/spec"
+				}
+			});
+
+			require(['spec/main']);
+
+		</script>
     </head>
 
     <body>
         <div id="mocha">
         </div>
-        <script>
-            if (window.mochaPhantomJS) {
-                mochaPhantomJS.run();
-            } else {
-                mocha.run();
-            }
-        </script>
     </body>
 </html>

@@ -1,5 +1,5 @@
 define(
-	'arrayDiff',
+	'arrayDiff/arrayDiff',
 	[
 		'arrayDiff/base/ArrayDiff'
 	],

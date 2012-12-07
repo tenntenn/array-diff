@@ -115,5 +115,7 @@ define(
 				return patched;
 			};
 		}
+
+		return EditScript;
 	}
 );
