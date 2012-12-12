@@ -62,6 +62,23 @@ define(
 					expect(expectedDeleteCmd[i].value).to.equal(actualDeleteCmd[i].value);
 				}
 			});
+
+			it('can get same array which is given as second parameter of constructor by patch method of editscript', function(){
+
+				var a = [1, 2, 3, 4, 5];
+				var b = [1, 1, 2, 3, 3, 5];
+
+				var diff = new ArrayDiff(a, b);
+				diff.compose();
+				var ec = diff.getEditScript();
+				
+				var expected = ec.patch(a);
+
+				expect(expected.length).to.equal(b.length);
+				for (var i=0; i<b.length; i++) {
+					expect(expected[i]).to.equal(b[i]);
+				}
+			});
 		});
 
 	}
