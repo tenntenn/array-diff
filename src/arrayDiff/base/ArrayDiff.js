@@ -71,7 +71,7 @@ define(
 					if (idx >= 0) {
 						i = idx + 1;
 					} else {
-						editscript.push(new Command(CommandType.Add, i, o));
+						editscript.push(new Command(CommandType.ADD, i, o));
 					}
 				});
 
