@@ -1,0 +1,29 @@
+{
+  "author": "Takuya Ueda <uedatakuya@gmail.com> (http://u.hinoichi.net)",
+  "name": "array-diff",
+  "description": "Array diff function for JavaScript",
+  "version": "0.0.1",
+  "homepage": "https://github.com/tenntenn/array-diff",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/tenntenn/array-diff.git"
+  },
+  "engines": {
+    "node": "~0.6.10"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "grunt": "~0.3.17",
+    "grunt-requirejs": "~0.2.14",
+    "grunt-contrib-yuidoc": "~0.3.2",
+    "phantomjs": "~0.0.2",
+	"grunt-shell": "~0.1.3"
+  },
+  "optionalDependencies": {},
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/tenntenn/array-diff.js/blob/master/LICENSE"
+    }
+  ]
+}
